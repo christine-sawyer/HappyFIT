@@ -8,8 +8,12 @@ import { drawKeypoints, drawSkeleton } from "./utilities";
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-  const [dorsiflexion, setDorsiflexion] = useState(0);
+  
+  const [leftShoulderFlexion, setLeftShoulderFlexion] = useState(0);
+  const [trunkLean, setTrunkLean] = useState(0);
   const [leftKneeFlexion, setLeftKneeFlexion] = useState(0);
+  const [leftHipFlexion, setLeftHipFlexion] = useState(0);
+  const [dorsiflexion, setDorsiflexion] = useState(0);
 
   const runPosenet = async () =>{
     console.log("runPosenet")
@@ -66,11 +70,21 @@ function App() {
         Math.atan2(leftHip.position.y - leftKnee.position.y, leftHip.position.x - leftKnee.position.x)) *
       (180 / Math.PI);
       setLeftKneeFlexion(leftKneeFlexionValue); 
-    // const leftHipFlexion =
+
+    // const leftShoulderFlexionValue =
     //   360 -
-    //   (Math.atan2(leftKnee.position.y - leftHip.position.y, leftKnee.position.x - leftHip.position.x) -
-    //     Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
+    //   (Math.atan2(leftElbow.position.y - leftShoulder.position.y, leftElbow.position.x - leftShoulder.position.x) -
+    //     Math.atan2(leftHip.position.y - leftShoulder.position.y, leftHip.position.x - leftShoulder.position.x)) *
     //   (180 / Math.PI);
+    //   setLeftShoulderFlexion(leftShoulderFlexionValue); 
+
+    const leftHipFlexionValue =
+    360 -
+    (Math.atan2(leftKnee.position.y - leftHip.position.y, leftKnee.position.x - leftHip.position.x) -
+      Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
+    (180 / Math.PI);
+    setLeftHipFlexion(leftHipFlexionValue); 
+
     // const dorsiflexionValue =
     //   360 -
     //   (Math.atan2(leftShin.y - leftAnkle.position.y, leftShin.x - leftAnkle.position.x) -
@@ -79,11 +93,12 @@ function App() {
 
     //   setDorsiflexion(dorsiflexionValue); 
 
-    // const trunkLean =
+    // const trunkLeanValue =
     //   360 -
-    //   (Math.atan2(sHip.y - hip.position.y, sHip.x - hip.position.x) -
-    //     Math.atan2(shoulder.position.y - hip.position.y, shoulder.position.x - hip.position.x)) *
+    //   (Math.atan2(leftSideTorso - leftHip.position.y, leftSideTorso - leftHip.position.x) -
+    //     Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
     //   (180 / Math.PI);
+    //   setTrunkLean(trunkLeanValue); 
   
 
 
@@ -113,8 +128,55 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Knee Flexion</h2>
-      <h2>{leftKneeFlexion.toFixed(1)}°</h2>
+
+      {/* {leftShoulderFlexion < 90 ? (
+        <>
+        <h2>Shoulder Flexion: </h2>
+        <h3>{leftShoulderFlexion.toFixed(1)}°</h3>
+        </>
+      ) : (
+        <>
+          <h2>Shoulder Flexion: Safe Range</h2>
+          <h3>{leftShoulderFlexion.toFixed(1)}°</h3>
+        </>
+      )} */}
+
+    {/* {trunkLean < 90 ? (
+        <>
+        <h2>Trunk Lean: </h2>
+        <h3>{trunkLean.toFixed(1)}°</h3>
+        </>
+      ) : (
+        <>
+          <h2>Trunk Lean: Safe Range</h2>
+          <h3>{trunkLean.toFixed(1)}°</h3>
+        </>
+      )} */}
+
+      {leftKneeFlexion < 90 ? (
+        <>
+        <h2>Knee Flexion: Less knee flexion</h2>
+        <h3>{leftKneeFlexion.toFixed(1)}°</h3>
+        </>
+      ) : (
+        <>
+          <h2>Knee Flexion: Safe Range</h2>
+          <h3>{leftKneeFlexion.toFixed(1)}°</h3>
+        </>
+      )}
+
+      {leftHipFlexion < 100 ? (
+        <>
+        <h2>Hip Flexion: Bring your chest up</h2>
+        <h3>{leftHipFlexion.toFixed(1)}°</h3>
+        </>
+      ) : (
+        <>
+        <h2>Hip Flexion: Safe range</h2>
+        <h3>{leftHipFlexion.toFixed(1)}°</h3>
+        </>
+      )}
+
       {/* <h2>Dorsiflexion</h2>
       <h2>{dorsiflexion}</h2> */}
       <header className="App-header">
