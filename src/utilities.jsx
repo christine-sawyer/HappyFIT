@@ -19,12 +19,12 @@ import * as tf from '@tensorflow/tfjs-core';
 
 const color = 'aqua';
 const boundingBoxColor = 'red';
-const lineWidth = 2;
+const lineWidth = 4;
 
-export const tryResNetButtonName = 'tryResNetButton';
-export const tryResNetButtonText = '[New] Try ResNet50';
-const tryResNetButtonTextCss = 'width:100%;text-decoration:underline;';
-const tryResNetButtonBackgroundCss = 'background:#e61d5f;';
+// export const tryResNetButtonName = 'tryResNetButton';
+// export const tryResNetButtonText = '[New] Try ResNet50';
+// const tryResNetButtonTextCss = 'width:100%;text-decoration:underline;';
+// const tryResNetButtonBackgroundCss = 'background:#e61d5f;';
 
 function isAndroid() {
   return /Android/i.test(navigator.userAgent);

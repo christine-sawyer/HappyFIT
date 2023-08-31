@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./App.css";
 import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
@@ -9,15 +9,17 @@ function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const [dorsiflexion, setDorsiflexion] = useState(0);
+  const [leftKneeFlexion, setLeftKneeFlexion] = useState(0);
 
   const runPosenet = async () =>{
+    console.log("runPosenet")
     const net = await posenet.load({
-      inputResolution:{width:640, height:480},
-      scale:0.5
+      // inputResolution:{width:640, height:480}, // removing this seemed to improve performance...
+      scale: 0.5 //Smaller number faster speed but less accurate
     })
     // Run detection every 100 miliseconds
     setInterval(()=>{
-      detect(net)
+      detect(net);
     }, 100)
   };
 
@@ -37,29 +39,45 @@ function App() {
       // console.log(pose);
       // console.log(pose.keypoints[0].position); // x, y of nose
 
+      const nose = pose.keypoints[0];
+      const leftEye = pose.keypoints[1];
+      const rightEye = pose.keypoints[2];
+      const leftEar = pose.keypoints[3];
+      const rightEar = pose.keypoints[4];
       const leftShoulder= pose.keypoints[5];
+      const rightShoulder = pose.keypoints[6];
+      const leftElbow = pose.keypoints[7];
+      const rightElbow= pose.keypoints[8];
+      const leftWrist = pose.keypoints[9];
+      const rightWrist = pose.keypoints[10];
       const leftHip = pose.keypoints[11];
+      const rightHip = pose.keypoints[12];
       const leftKnee = pose.keypoints[13];
-      const leftAnkle = pose.keypoints[14];
+      const rightKnee = pose.keypoints[14];
+      const leftAnkle = pose.keypoints[15];
+      const rightAnkle = pose.keypoints[16];
+
       const leftShin = { x: leftKnee.position.x, y: leftAnkle.position.y };
       const leftSideTorso = { x: leftShoulder.position.x, y: leftHip.position.y };
 
-      const leftKneeFlexion =
+
+      const leftKneeFlexionValue =
       (Math.atan2(leftAnkle.position.y - leftKnee.position.y, leftAnkle.position.x - leftKnee.position.x) -
         Math.atan2(leftHip.position.y - leftKnee.position.y, leftHip.position.x - leftKnee.position.x)) *
       (180 / Math.PI);
-    const leftHipFlexion =
-      360 -
-      (Math.atan2(leftKnee.position.y - leftHip.position.y, leftKnee.position.x - leftHip.position.x) -
-        Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
-      (180 / Math.PI);
-    const dorsiflexionValue =
-      360 -
-      (Math.atan2(leftShin.y - leftAnkle.position.y, leftShin.x - leftAnkle.position.x) -
-        Math.atan2(leftKnee.position.y - leftAnkle.position.y, leftKnee.position.x - leftAnkle.position.x)) *
-      (180 / Math.PI);
+      setLeftKneeFlexion(leftKneeFlexionValue); 
+    // const leftHipFlexion =
+    //   360 -
+    //   (Math.atan2(leftKnee.position.y - leftHip.position.y, leftKnee.position.x - leftHip.position.x) -
+    //     Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
+    //   (180 / Math.PI);
+    // const dorsiflexionValue =
+    //   360 -
+    //   (Math.atan2(leftShin.y - leftAnkle.position.y, leftShin.x - leftAnkle.position.x) -
+    //     Math.atan2(leftKnee.position.y - leftAnkle.position.y, leftKnee.position.x - leftAnkle.position.x)) *
+    //   (180 / Math.PI);
 
-      setDorsiflexion(dorsiflexionValue); 
+    //   setDorsiflexion(dorsiflexionValue); 
 
     // const trunkLean =
     //   360 -
@@ -68,27 +86,11 @@ function App() {
     //   (180 / Math.PI);
   
 
-      // const nose = pose.keypoints.find(point => point.part === 'nose');
-      // const leftEye = pose.keypoints.find(point => point.part === 'leftEye');
-      // const rightEye = pose.keypoints.find(point => point.part === 'rightEye');
-      // const leftEar = pose.keypoints.find(point => point.part === 'leftEar');
-      // const rightEar = pose.keypoints.find(point => point.part === 'rightEar');
-      // const leftShoulder = pose.keypoints.find(point => point.part === 'leftShoulder');
-      // const rightShoulder = pose.keypoints.find(point => point.part === 'rightShoulder');
-      // const leftElbow = pose.keypoints.find(point => point.part === 'leftElbow');
-      // const rightElbow = pose.keypoints.find(point => point.part === 'rightElbow');
-      // const leftWrist = pose.keypoints.find(point => point.part === 'leftWrist');
-      // const rightWrist = pose.keypoints.find(point => point.part === 'rightWrist');
-      // const leftHip = pose.keypoints.find(point => point.part === 'leftHip');
-      // const rightHip = pose.keypoints.find(point => point.part === 'rightHip');
-      // const leftKnee = pose.keypoints.find(point => point.part === 'leftKnee');
-      // const rightKnee = pose.keypoints.find(point => point.part === 'rightKnee');
-      // const leftAnkle = pose.keypoints.find(point => point.part === 'leftAnkle');
-      // const rightAnkle = pose.keypoints.find(point => point.part === 'rightAnkle');
 
-      console.log('left hip:',leftHip);
-      console.log('left hip:',leftShoulder);
-      console.log('left shin:', leftShin);
+
+      // console.log('left hip:',leftHip);
+      // console.log('left hip:',leftShoulder);
+      // console.log('left shin:', leftShin);
 
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
@@ -103,12 +105,18 @@ function App() {
     drawSkeleton(pose["keypoints"], 0.5, ctx);
   };
 
-  runPosenet();
+
+  useEffect(() => {
+    runPosenet()
+  },[])
+  
 
   return (
     <div className="App">
-      <h1>Dorsiflexion</h1>
-      <h2>{dorsiflexion}</h2>
+      <h2>Knee Flexion</h2>
+      <h2>{leftKneeFlexion.toFixed(1)}°</h2>
+      {/* <h2>Dorsiflexion</h2>
+      <h2>{dorsiflexion}</h2> */}
       <header className="App-header">
         <Webcam
           ref={webcamRef}
