@@ -14,6 +14,7 @@ function App() {
   const [leftKneeFlexion, setLeftKneeFlexion] = useState(0);
   const [leftHipFlexion, setLeftHipFlexion] = useState(0);
   const [dorsiflexion, setDorsiflexion] = useState(0);
+  const [armHeight, setArmHeight] = useState(0);
 
   const runPosenet = async () =>{
     console.log("runPosenet")
@@ -43,6 +44,7 @@ function App() {
       // console.log(pose);
       // console.log(pose.keypoints[0].position); // x, y of nose
 
+      // Name all keypoints
       const nose = pose.keypoints[0];
       const leftEye = pose.keypoints[1];
       const rightEye = pose.keypoints[2];
@@ -64,6 +66,19 @@ function App() {
       const leftShin = { x: leftKnee.position.x, y: leftAnkle.position.y };
       const leftSideTorso = { x: leftShoulder.position.x, y: leftHip.position.y };
 
+      const leftShoulderToWristX = leftShoulder.position.x - leftWrist.position.x;
+
+
+
+/*
+* Squat - Left side toward camera
+*/
+      /*
+      * Knee flexion
+      * Proper form: angle from 90° to 100°
+      * >90° Bring your hips up
+      * <100° Lower your hips more
+      */
 
       const leftKneeFlexionValue =
       (Math.atan2(leftAnkle.position.y - leftKnee.position.y, leftAnkle.position.x - leftKnee.position.x) -
@@ -78,12 +93,46 @@ function App() {
     //   (180 / Math.PI);
     //   setLeftShoulderFlexion(leftShoulderFlexionValue); 
 
+    /*
+    * Knee flexion
+    * Proper form: angle from 110° to 130°
+    * >110° Bring your chest up
+    * <130° Bring your chest down towards thighs
+    */
+
     const leftHipFlexionValue =
     360 -
     (Math.atan2(leftKnee.position.y - leftHip.position.y, leftKnee.position.x - leftHip.position.x) -
       Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
     (180 / Math.PI);
     setLeftHipFlexion(leftHipFlexionValue); 
+
+    /*
+    * Arm height
+    * Proper form: Wrists at shoulder level. Takes in account for straight and bent arms.
+    * Shoulder y > Wrist y - 10 : Raise your arms up
+    * Shoulder y > Wrist y + 10 : Lower your arms down
+    */
+
+    // const armHeightValue =
+      // (Math.atan2((leftWrist.position.y - leftShoulder.position.y)/ leftShoulderToWristX)) *
+      // (180 / Math.PI);
+      // Math.atan2(leftWrist.position.y - leftShoulder.position.y, leftWrist.position.x - leftShoulder.position.x) *
+      // // (180 / Math.PI);
+      // let angleRadians = Math.atan2(leftWrist.position.y - leftShoulder.position.y, leftWrist.position.x - leftShoulder.position.x);
+    
+      //   angleRadians += Math.PI;
+
+      // let armHeightValue = 360 - angleRadians * (180 / Math.PI);
+
+
+      // setArmHeight(armHeightValue);
+
+      console.log('wrist', leftWrist.position.x);
+      console.log('shoulder', leftShoulder.position.x);
+      // console.log(armHeightValue);
+      console.log(leftShoulderToWristX);
+
 
     // const dorsiflexionValue =
     //   360 -
@@ -102,10 +151,6 @@ function App() {
   
 
 
-
-      // console.log('left hip:',leftHip);
-      // console.log('left hip:',leftShoulder);
-      // console.log('left shin:', leftShin);
 
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
@@ -152,6 +197,9 @@ function App() {
           <h3>{trunkLean.toFixed(1)}°</h3>
         </>
       )} */}
+
+
+      {/* <h3>{armHeight.toFixed(1)}°</h3> */}
 
       {leftKneeFlexion < 90 ? (
         <>
