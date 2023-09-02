@@ -226,12 +226,12 @@ export const SquatCam = () => {
 
       {/* <h2>Dorsiflexion</h2>
       <h2>{dorsiflexion}</h2> */}
-      <header className="App-header">
+      <div className="squat-cam__cam-canvas">
         <Webcam
           ref={webcamRef}
           style={{
-            position: "absolute",
-            marginLeft: "auto",
+            // position: "absolute",
+            // marginLeft: "auto",
             marginRight: "auto",
             left: 0,
             right: 0,
@@ -246,7 +246,7 @@ export const SquatCam = () => {
           ref={canvasRef}
           style={{
             position: "absolute",
-            marginLeft: "auto",
+            // marginLeft: "auto",
             marginRight: "auto",
             left: 0,
             right: 0,
@@ -256,7 +256,7 @@ export const SquatCam = () => {
             height:480,
           }}
         />
-      </header>
+      </div>
     </div>
     )
   }

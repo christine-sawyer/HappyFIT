@@ -1,4 +1,5 @@
 import { SquatCam } from '../../components/SquatCam/SquatCam';
+import { SquatCamSidebar } from '../../components/SquatCamSidebar/SquatCamSidebar';
 import './CameraPage.scss';
 
 export const CameraPage = () => {
@@ -6,7 +7,10 @@ export const CameraPage = () => {
   return (
     <main className = "camera-page">
         <h1>HappyFIT Cam</h1>
-        <SquatCam />
+        <section className = "camera-page__squat-cam-container">
+            <SquatCam />
+            <SquatCamSidebar />
+        </section>
         
     </main>
   )

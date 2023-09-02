@@ -10,7 +10,7 @@ export const Exercises = () => {
         <h1>Exercise</h1>
         {/* <ExerciseLibrary /> */}
         {/* <SquatDetails />  */}
-        <SquatCamSidebar />
+        {/* <SquatCamSidebar /> */}
     </main>
   )
 }
