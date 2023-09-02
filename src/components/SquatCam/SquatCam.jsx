@@ -94,7 +94,7 @@ export const SquatCam = () => {
     //   setLeftShoulderFlexion(leftShoulderFlexionValue); 
 
     /*
-    * Knee flexion
+    * Hip flexion
     * Proper form: angle from 110° to 130°
     * >110° Bring your chest up
     * <130° Bring your chest down towards thighs
@@ -200,29 +200,37 @@ export const SquatCam = () => {
 
       {/* <h3>{armHeight.toFixed(1)}°</h3> */}
 
-      {leftKneeFlexion < 90 ? (
-        <>
-        <h2>Knee Flexion: Less knee flexion</h2>
-        <h3>{leftKneeFlexion.toFixed(1)}°</h3>
-        </>
-      ) : (
-        <>
-          <h2>Knee Flexion: Safe Range</h2>
-          <h3>{leftKneeFlexion.toFixed(1)}°</h3>
-        </>
-      )}
+      <section className = "squat-cam__feedback-container">
+        <div className = "squat-cam__feedback-card">
+          <h3 className = "squat-cam__feedback-header">Hip Height</h3>
+          {leftKneeFlexion < 90 ? (
+            <>
+            <h2 className = "squat-cam__feedback--up">Raise Hips Up</h2>
+            {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+            </>
+          ) : (
+            <>
+              <h2 className = "squat-cam__feedback--safe">Great Form!</h2>
+              {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+            </>
+          )}
+        </div>
 
-      {leftHipFlexion < 100 ? (
-        <>
-        <h2>Hip Flexion: Bring your chest up</h2>
-        <h3>{leftHipFlexion.toFixed(1)}°</h3>
-        </>
-      ) : (
-        <>
-        <h2>Hip Flexion: Safe range</h2>
-        <h3>{leftHipFlexion.toFixed(1)}°</h3>
-        </>
-      )}
+        <div className = "squat-cam__feedback-card">
+        <h3 className = "squat-cam__feedback-header">Torso Lean</h3>
+        {leftHipFlexion < 100 ? (
+          <>
+          <h2 className = "squat-cam__feedback--up">Bring your chest up</h2>
+          {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+          </>
+        ) : (
+          <>
+          <h2  className = "squat-cam__feedback--safe">Fantastic Form!</h2>
+          {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+          </>
+        )}
+        </div>
+      </section>
 
       {/* <h2>Dorsiflexion</h2>
       <h2>{dorsiflexion}</h2> */}
