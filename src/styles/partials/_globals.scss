@@ -1,0 +1,9 @@
+@use './mixins' as *;
+@use './typography' as *;
+@use './variables' as *;
+
+html {
+    background-color: white;
+    color: black;
+    font-family: $title-font;  
+}
