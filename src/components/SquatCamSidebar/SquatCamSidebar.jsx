@@ -13,6 +13,7 @@ export const SquatCamSidebar = () => {
             src = {squat}
             alt = "squat"
         />
+        {/* Add check marks next to items */}
         <section className = "squat-cam-sidebar__cue-container">
             <p className ="squat-cam-sidebar__cue-title">Checklist:</p>
             <p className ="squat-cam-sidebar__cue">Feet shoulder-width apart.</p>
