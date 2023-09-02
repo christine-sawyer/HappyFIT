@@ -3,12 +3,9 @@
 @use '../../styles/partials/typography' as *;
 @use '../../styles/partials/variables' as *;
 
-.camera-page{
-    display: flex;
-    flex-direction: column;
-    margin: 2rem;
+.header {
 
-    &__squat-cam-container {
-        display: flex;
+    &__logo {
+        width: 10rem;
     }
 }

@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { CameraPage } from "./pages/CameraPage/CameraPage";
 import { Instructions } from "./pages/Instructions/Instructions";
 import { Exercises } from "./pages/Exercises/Exercises";
+import { Header } from "./components/Header/Header";
 
 // import * as tf from "@tensorflow/tfjs";
 // import * as posenet from "@tensorflow-models/posenet";
@@ -180,6 +181,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* <Header /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="instructions" element={<Instructions />} />

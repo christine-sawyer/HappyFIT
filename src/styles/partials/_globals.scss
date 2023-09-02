@@ -3,11 +3,13 @@
 @use './variables' as *;
 
 html {
-    background-color: white;
     color: black;
     font-family: $title-font;  
 }
 
 body {
+    background-image: url("../../assets/images/arctic-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
 }

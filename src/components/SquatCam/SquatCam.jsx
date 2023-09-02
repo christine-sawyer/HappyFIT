@@ -247,6 +247,7 @@ export const SquatCam = () => {
             zindex: 9,
             width: 640,
             height:480,
+    
           }}
         />
 

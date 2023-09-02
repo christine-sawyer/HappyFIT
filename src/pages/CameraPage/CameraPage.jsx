@@ -6,7 +6,7 @@ export const CameraPage = () => {
   
   return (
     <main className = "camera-page">
-        <h1>HappyFIT Cam</h1>
+        {/* <h1>HappyFIT Cam</h1> */}
         <section className = "camera-page__squat-cam-container">
             <SquatCam />
             <SquatCamSidebar />
