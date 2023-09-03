@@ -12,10 +12,14 @@
             display: flex;
             justify-content: space-around;
         }
+        @include desktop {
+            margin: 2rem;
+        }
     }
 
     &__logo {
         width: 15rem;
+        height: 100%;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -24,14 +28,14 @@
             margin-left: 0;
             margin-right: 0;
         }
+
+        @include desktop {
+            width: 20rem;
+        }
     }
     &__title {
         text-align: center;
     }
-
-    // &__link {
-    //     color: darkblue;
-    // }
 
     &__link-content{
         display: flex;
@@ -47,19 +51,20 @@
         text-decoration: none;
         border-radius: 1rem;
         background-color: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.1);
-        backdrop-filter: blur(30px);
-        // color: rgba(255,255,255,0.8);
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(0.5rem);
         color:teal;
-        font-size: 14px;
+        font-size: 1rem;
         letter-spacing: 2px;
         cursor: pointer;
         text-transform: uppercase;
+
+        @include desktop {
+            font-size: 1.5rem;
+            padding: 1.5rem 4rem;
+        }
       }
-      
-    // &__link:hover {
-    //     background-color: rgba(255,255,255,0.2);
-    //   }
+
     &__link:hover {
         background-position: right center;
         background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
@@ -71,6 +76,16 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
+
+        @include tablet {
+            width: 15rem;
+            margin-top:2rem;
+        }
+
+        @include desktop {
+            width: 20rem;
+            margin-top: 8rem;
+        }
     }
 
 
