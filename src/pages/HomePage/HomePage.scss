@@ -2,3 +2,66 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/typography' as *;
 @use '../../styles/partials/variables' as *;
+
+.homepage {
+
+    &__content {
+        margin: 1rem;
+    }
+
+    &__logo {
+        width: 15rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &__title {
+        text-align: center;
+    }
+
+    // &__link {
+    //     color: darkblue;
+    // }
+
+    &__link-content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        padding: 1.5rem 2rem;
+        margin: 1rem;
+        border: 0;
+        text-decoration: none;
+        border-radius: 1rem;
+        background-color: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.1);
+        backdrop-filter: blur(30px);
+        // color: rgba(255,255,255,0.8);
+        color:teal;
+        font-size: 14px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      
+    // &__link:hover {
+    //     background-color: rgba(255,255,255,0.2);
+    //   }
+    &__link:hover {
+        background-position: right center;
+        background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+        color: rgba(255,255,255,0.8);
+      }
+
+    &__penguin {
+        width: 10rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+}
