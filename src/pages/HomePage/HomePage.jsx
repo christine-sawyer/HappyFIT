@@ -13,7 +13,7 @@ export const HomePage = () => {
                   src = {logo}
                   alt = "HappyFIT logo"
               />
-          <h1 className = "homepage__title">Welcome to HappyFIT!</h1>
+          {/* <h1 className = "homepage__title">Welcome to HappyFIT!</h1> */}
 
         <div className = "homepage__link-container">
           <Link to ="/instructions" className = "homepage__link">
@@ -28,8 +28,8 @@ export const HomePage = () => {
               About
           </Link>
         </div>
-
         </section>
+
         <img className = "homepage__penguin"
                   src = {penguin}
                   alt = "HappyFIT penguin mascot"
