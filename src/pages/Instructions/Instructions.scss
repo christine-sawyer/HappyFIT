@@ -94,4 +94,39 @@
         }
     }
 
+    &__links-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 1rem;
+        margin: 1rem;
+        border: 0;
+        text-decoration: none;
+        border-radius: 1rem;
+        background-color: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255, 255, 0, 0.8);
+        backdrop-filter: blur(0.5rem);
+        color:teal;
+        font-size: 1rem;
+        letter-spacing: 2px;
+        cursor: pointer;
+        text-transform: uppercase;
+
+        @include desktop {
+            font-size: 1.5rem;
+            padding: 1.5rem 4rem;
+        }
+      }
+
+    &__link:hover {
+        background-position: right center;
+        background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+        color: rgba(255,255,255,0.8);
+      }
+
 }

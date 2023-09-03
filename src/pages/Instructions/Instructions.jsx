@@ -1,5 +1,7 @@
 import './Instructions.scss';
 
+import { Link } from "react-router-dom";
+
 import cameraPopup from "../../assets/images/UseCameraPopup.jpg";
 import manOutOfFrame from "../../assets/images/ManNotInFrame.png"
 import squatInFrame from "../../assets/images/SquatInFrame.png"
@@ -35,9 +37,14 @@ export const Instructions = () => {
             alt = "Cartoon of lady doing a squat in frame"
           />
           </div>
-
-          
-          <p>M</p>
+          <div className = "instructions__links-container">
+            <Link to ="/" className = "instructions__link">
+            ⬅️Back
+            </Link>
+            <Link to ="/exercises" className = "instructions__link">
+                Exercise Library🏋🏽‍♀️
+            </Link>
+          </div>
         </section>
 
         
