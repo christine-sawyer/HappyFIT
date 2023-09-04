@@ -5,7 +5,9 @@ import { HomePage } from './pages/HomePage/HomePage';
 import { CameraPage } from "./pages/CameraPage/CameraPage";
 import { Instructions } from "./pages/Instructions/Instructions";
 import { Exercises } from "./pages/Exercises/Exercises";
-import { Header } from "./components/Header/Header";
+import { ExerciseDetails } from "./pages/ExerciseDetails/ExerciseDetails";
+
+// import { Header } from "./components/Header/Header";
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="instructions" element={<Instructions />} />
           <Route path="exercises" element={<Exercises />} />
+          <Route path="exercises/squat" element={<ExerciseDetails />} />
           <Route path="camera" element={<CameraPage />} />
       </Routes>
     </BrowserRouter>
