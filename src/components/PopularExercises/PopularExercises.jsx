@@ -76,19 +76,11 @@ export const PopularExercises = () => {
                     Shoulders
                 </p>
               </div>
-            </div>
-
-            <Link to ="/" className = "popular-exercises__link">
+            </div>         
+        </div>
+        <Link to ="/" className = "popular-exercises__link">
             ⬅️Back
             </Link>
-
-            
-
-
-
-
-        </div>
-        
         
 
       </section>
