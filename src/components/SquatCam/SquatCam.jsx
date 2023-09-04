@@ -86,13 +86,6 @@ export const SquatCam = () => {
       (180 / Math.PI);
       setLeftKneeFlexion(leftKneeFlexionValue); 
 
-    // const leftShoulderFlexionValue =
-    //   360 -
-    //   (Math.atan2(leftElbow.position.y - leftShoulder.position.y, leftElbow.position.x - leftShoulder.position.x) -
-    //     Math.atan2(leftHip.position.y - leftShoulder.position.y, leftHip.position.x - leftShoulder.position.x)) *
-    //   (180 / Math.PI);
-    //   setLeftShoulderFlexion(leftShoulderFlexionValue); 
-
     /*
     * Hip flexion
     * Proper form: angle from 110° to 130°
@@ -107,52 +100,7 @@ export const SquatCam = () => {
     (180 / Math.PI);
     setLeftHipFlexion(leftHipFlexionValue); 
 
-    /*
-    * Arm height
-    * Proper form: Wrists at shoulder level. Takes in account for straight and bent arms.
-    * Shoulder y > Wrist y - 10 : Raise your arms up
-    * Shoulder y > Wrist y + 10 : Lower your arms down
-    */
-
-    // const armHeightValue =
-      // (Math.atan2((leftWrist.position.y - leftShoulder.position.y)/ leftShoulderToWristX)) *
-      // (180 / Math.PI);
-      // Math.atan2(leftWrist.position.y - leftShoulder.position.y, leftWrist.position.x - leftShoulder.position.x) *
-      // // (180 / Math.PI);
-      // let angleRadians = Math.atan2(leftWrist.position.y - leftShoulder.position.y, leftWrist.position.x - leftShoulder.position.x);
-    
-      //   angleRadians += Math.PI;
-
-      // let armHeightValue = 360 - angleRadians * (180 / Math.PI);
-
-
-      // setArmHeight(armHeightValue);
-
-    //   console.log('wrist', leftWrist.position.x);
-    //   console.log('shoulder', leftShoulder.position.x);
-      // console.log(armHeightValue);
-    //   console.log(leftShoulderToWristX);
-
-
-    // const dorsiflexionValue =
-    //   360 -
-    //   (Math.atan2(leftShin.y - leftAnkle.position.y, leftShin.x - leftAnkle.position.x) -
-    //     Math.atan2(leftKnee.position.y - leftAnkle.position.y, leftKnee.position.x - leftAnkle.position.x)) *
-    //   (180 / Math.PI);
-
-    //   setDorsiflexion(dorsiflexionValue); 
-
-    // const trunkLeanValue =
-    //   360 -
-    //   (Math.atan2(leftSideTorso - leftHip.position.y, leftSideTorso - leftHip.position.x) -
-    //     Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
-    //   (180 / Math.PI);
-    //   setTrunkLean(trunkLeanValue); 
-  
-
-
-
-      drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
+    drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
   };
 
@@ -172,31 +120,6 @@ export const SquatCam = () => {
 
     return (
        <div className="squat-cam">
-
-      {/* {leftShoulderFlexion < 90 ? (
-        <>
-        <h2>Shoulder Flexion: </h2>
-        <h3>{leftShoulderFlexion.toFixed(1)}°</h3>
-        </>
-      ) : (
-        <>
-          <h2>Shoulder Flexion: Safe Range</h2>
-          <h3>{leftShoulderFlexion.toFixed(1)}°</h3>
-        </>
-      )} */}
-
-    {/* {trunkLean < 90 ? (
-        <>
-        <h2>Trunk Lean: </h2>
-        <h3>{trunkLean.toFixed(1)}°</h3>
-        </>
-      ) : (
-        <>
-          <h2>Trunk Lean: Safe Range</h2>
-          <h3>{trunkLean.toFixed(1)}°</h3>
-        </>
-      )} */}
-
 
       {/* <h3>{armHeight.toFixed(1)}°</h3> */}
 
@@ -247,7 +170,7 @@ export const SquatCam = () => {
             zindex: 9,
             width: 640,
             height:480,
-    
+            transform: "scaleX(-1)",
           }}
         />
 
@@ -263,6 +186,7 @@ export const SquatCam = () => {
             zindex: 9,
             width: 640,
             height:480,
+            transform: "scaleX(-1)",
           }}
         />
       </div>
