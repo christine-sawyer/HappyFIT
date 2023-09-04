@@ -26,13 +26,20 @@
         width: 15rem;
     }
     &__feedback-header{
+        font-size: 2rem;
         color: white;
     }
     &__feedback--up {
+        font-size: 2.25rem;
         color: red;
     }
     &__feedback--safe {
-        color: green;
+        color: lightgreen;
+        font-size: 2.25rem;
+    }
+    &__feedback--down {
+        color: yellow;
+        font-size: 2.25rem;
     }
    
 }

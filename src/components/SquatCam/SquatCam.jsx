@@ -1,4 +1,4 @@
-import './SquatCam.scss';
+import "./SquatCam.scss";
 import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
@@ -6,9 +6,9 @@ import { drawKeypoints, drawSkeleton } from "../../utilities/utilities";
 import { useRef, useState, useEffect } from "react";
 
 export const SquatCam = () => {
-    const webcamRef = useRef(null);
+  const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-  
+
   const [leftShoulderFlexion, setLeftShoulderFlexion] = useState(0);
   const [trunkLean, setTrunkLean] = useState(0);
   const [leftKneeFlexion, setLeftKneeFlexion] = useState(0);
@@ -16,22 +16,26 @@ export const SquatCam = () => {
   const [dorsiflexion, setDorsiflexion] = useState(0);
   const [armHeight, setArmHeight] = useState(0);
 
-  const runPosenet = async () =>{
+  const runPosenet = async () => {
     // console.log("runPosenet")
     const net = await posenet.load({
       // inputResolution:{width:640, height:480}, // removing this seemed to improve performance...
-      scale: 0.5 //Smaller number faster speed but less accurate
-    })
+      scale: 0.5, //Smaller number faster speed but less accurate
+    });
     // Run detection every 100 miliseconds
-    setInterval(()=>{
+    setInterval(() => {
       detect(net);
-    }, 100)
+    }, 100);
   };
 
-  const detect = async (net) =>{
+  const detect = async (net) => {
     // Get Video Properties
-    if(typeof webcamRef.current !== "undefined" && webcamRef.current !== null && webcamRef.current.video.readyState===4){
-      const video = webcamRef.current.video
+    if (
+      typeof webcamRef.current !== "undefined" &&
+      webcamRef.current !== null &&
+      webcamRef.current.video.readyState === 4
+    ) {
+      const video = webcamRef.current.video;
       const videoWidth = webcamRef.current.video.videoWidth;
       const videoHeight = webcamRef.current.video.videoHeight;
 
@@ -50,10 +54,10 @@ export const SquatCam = () => {
       const rightEye = pose.keypoints[2];
       const leftEar = pose.keypoints[3];
       const rightEar = pose.keypoints[4];
-      const leftShoulder= pose.keypoints[5];
+      const leftShoulder = pose.keypoints[5];
       const rightShoulder = pose.keypoints[6];
       const leftElbow = pose.keypoints[7];
-      const rightElbow= pose.keypoints[8];
+      const rightElbow = pose.keypoints[8];
       const leftWrist = pose.keypoints[9];
       const rightWrist = pose.keypoints[10];
       const leftHip = pose.keypoints[11];
@@ -64,43 +68,57 @@ export const SquatCam = () => {
       const rightAnkle = pose.keypoints[16];
 
       const leftShin = { x: leftKnee.position.x, y: leftAnkle.position.y };
-      const leftSideTorso = { x: leftShoulder.position.x, y: leftHip.position.y };
+      const leftSideTorso = {
+        x: leftShoulder.position.x,
+        y: leftHip.position.y,
+      };
 
-      const leftShoulderToWristX = leftShoulder.position.x - leftWrist.position.x;
+      const leftShoulderToWristX =
+        leftShoulder.position.x - leftWrist.position.x;
 
-
-
-/*
-* Squat - Left side toward camera
-*/
       /*
-      * Knee flexion
-      * Proper form: angle from 90° to 100°
-      * >90° Bring your hips up
-      * <100° Lower your hips more
-      */
+       * Squat - Left side toward camera
+       */
+      /*
+       * Knee flexion - Hip Height
+       * Proper form: angle from 90° to 100°
+       * >90° Bring your hips up
+       * <100° Lower your hips more
+       */
 
       const leftKneeFlexionValue =
-      (Math.atan2(leftAnkle.position.y - leftKnee.position.y, leftAnkle.position.x - leftKnee.position.x) -
-        Math.atan2(leftHip.position.y - leftKnee.position.y, leftHip.position.x - leftKnee.position.x)) *
-      (180 / Math.PI);
-      setLeftKneeFlexion(leftKneeFlexionValue); 
+        (Math.atan2(
+          leftAnkle.position.y - leftKnee.position.y,
+          leftAnkle.position.x - leftKnee.position.x
+        ) -
+          Math.atan2(
+            leftHip.position.y - leftKnee.position.y,
+            leftHip.position.x - leftKnee.position.x
+          )) *
+        (180 / Math.PI);
+      setLeftKneeFlexion(leftKneeFlexionValue);
 
-    /*
-    * Hip flexion
-    * Proper form: angle from 110° to 130°
-    * >110° Bring your chest up
-    * <130° Bring your chest down towards thighs
-    */
+      /*
+       * Hip flexion - Torso Lean
+       * Proper form: angle from 110° to 130°
+       * >110° Bring your chest up
+       * <130° Bring your chest down towards thighs
+       */
 
-    const leftHipFlexionValue =
-    360 -
-    (Math.atan2(leftKnee.position.y - leftHip.position.y, leftKnee.position.x - leftHip.position.x) -
-      Math.atan2(leftShoulder.position.y - leftHip.position.y, leftShoulder.position.x - leftHip.position.x)) *
-    (180 / Math.PI);
-    setLeftHipFlexion(leftHipFlexionValue); 
+      const leftHipFlexionValue =
+        360 -
+        (Math.atan2(
+          leftKnee.position.y - leftHip.position.y,
+          leftKnee.position.x - leftHip.position.x
+        ) -
+          Math.atan2(
+            leftShoulder.position.y - leftHip.position.y,
+            leftShoulder.position.x - leftHip.position.x
+          )) *
+          (180 / Math.PI);
+      setLeftHipFlexion(leftHipFlexionValue);
 
-    drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
+      drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
   };
 
@@ -113,45 +131,55 @@ export const SquatCam = () => {
     drawSkeleton(pose["keypoints"], 0.5, ctx);
   };
 
-
   useEffect(() => {
-    runPosenet()
-  },[])
+    runPosenet();
+  }, []);
 
-    return (
-       <div className="squat-cam">
-
+  return (
+    <div className="squat-cam">
       {/* <h3>{armHeight.toFixed(1)}°</h3> */}
 
-      <section className = "squat-cam__feedback-container">
-        <div className = "squat-cam__feedback-card">
-          <h3 className = "squat-cam__feedback-header">Hip Height</h3>
+      <section className="squat-cam__feedback-container">
+        <div className="squat-cam__feedback-card">
+          <h3 className="squat-cam__feedback-header">Hip Height</h3>
           {leftKneeFlexion < 90 ? (
             <>
-            <h2 className = "squat-cam__feedback--up">Raise Hips Up</h2>
-            {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+              <h2 className="squat-cam__feedback--up">Raise Hips Up</h2>
+              {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+            </>
+          ) : leftKneeFlexion >= 90 && leftKneeFlexion <= 100 ? (
+            <>
+              <h2 className="squat-cam__feedback--safe">Great Form!</h2>
+              {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           ) : (
             <>
-              <h2 className = "squat-cam__feedback--safe">Great Form!</h2>
+              <h2 className="squat-cam__feedback--down">Lower Hips More</h2>
               {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           )}
         </div>
 
-        <div className = "squat-cam__feedback-card">
-        <h3 className = "squat-cam__feedback-header">Torso Lean</h3>
-        {leftHipFlexion < 100 ? (
-          <>
-          <h2 className = "squat-cam__feedback--up">Bring your chest up</h2>
-          {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
-          </>
-        ) : (
-          <>
-          <h2  className = "squat-cam__feedback--safe">Fantastic Form!</h2>
-          {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
-          </>
-        )}
+        <div className="squat-cam__feedback-card">
+          <h3 className="squat-cam__feedback-header">Torso Lean</h3>
+          {leftHipFlexion < 110 ? (
+            <>
+              <h2 className="squat-cam__feedback--up">Bring Chest Up</h2>
+              {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+            </>
+          ) : leftHipFlexion >= 110 && leftHipFlexion <= 130 ? (
+            <>
+              <h2 className="squat-cam__feedback--safe">Fantastic Form!</h2>
+              {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+            </>
+          ) : (
+            <>
+              <h2 className="squat-cam__feedback--down">
+                Lower Chest To Thighs
+              </h2>
+              {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+            </>
+          )}
         </div>
       </section>
 
@@ -169,7 +197,7 @@ export const SquatCam = () => {
             textAlign: "center",
             zindex: 9,
             width: 640,
-            height:480,
+            height: 480,
             transform: "scaleX(-1)",
           }}
         />
@@ -185,11 +213,11 @@ export const SquatCam = () => {
             textAlign: "center",
             zindex: 9,
             width: 640,
-            height:480,
+            height: 480,
             transform: "scaleX(-1)",
           }}
         />
       </div>
     </div>
-    )
-  }
+  );
+};
