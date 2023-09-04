@@ -4,9 +4,7 @@ import { ExerciseDescriptions } from '../../components/ExerciseDescriptions/Exer
 export const ExerciseDetails = () => {
   
   return (
-    <section className = "exercise-details">
-        <h1>Exercise Details</h1>
-        
+    <section className = "exercise-details">       
         <ExerciseDescriptions />
         {/* <ExerciseVideo /> */}
     </section>

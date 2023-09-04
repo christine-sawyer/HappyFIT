@@ -11,12 +11,12 @@
         @include tablet {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
         }
     }
-
     &__card {
-        width:18.75rem;
-        height:16.25rem;
+        width:300px;
+        height:260px;
         position:relative;
         background:#ffa;
         overflow:hidden;
@@ -32,6 +32,10 @@
         font-size:19px;
         // -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
         color:#130d6b;
+
+        @include tablet {
+            margin: 1rem 2rem;
+        }
 
         &:before {
             content:"";

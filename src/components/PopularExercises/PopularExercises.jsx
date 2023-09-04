@@ -13,7 +13,8 @@ export const PopularExercises = () => {
       <section className = "popular-exercises">
         <h1 className = "popular-exercises__title">Popular Exercises</h1>
         <div className = "popular-exercises__card-container">
-            <Link to ="/exercises/squat" className = "popular-exercises__card">
+            <Link to ="/exercises/squat">
+            <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Squat
               </p>
@@ -36,9 +37,11 @@ export const PopularExercises = () => {
                     Legs - Thighs
                 </p>
               </div>
+            </div>
             </Link> 
 
-            <Link to ="/exercises/plank" className = "popular-exercises__card">
+            <Link to ="/exercises/plank">
+            <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Plank
               </p>
@@ -60,9 +63,11 @@ export const PopularExercises = () => {
                     Back
                 </p>
               </div>
+              </div>
             </Link>
 
-            <Link to ="/exercises/lateral-raise" className = "popular-exercises__card">
+            <Link to ="/exercises/lateral-raise">
+            <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Lateral Raise
               </p>
@@ -75,6 +80,7 @@ export const PopularExercises = () => {
                 <p className = "popular-exercises__muscle-group popular-exercises__muscle-group--shoulders">
                     Shoulders
                 </p>
+              </div>
               </div>
             </Link>         
         </div>
