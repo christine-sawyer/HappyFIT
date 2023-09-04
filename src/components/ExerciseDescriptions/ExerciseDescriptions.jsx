@@ -8,7 +8,9 @@ import squatGIF from "../../assets/gifs/squat.gif";
 export const ExerciseDescriptions = () => {
   return (
     <section className="exercise-descriptions">
-      <h1 className="exercise-descriptions__card-text-title">Squat</h1>
+        <div className = "exercise-descriptions__title-n-card">
+      <h1 className="exercise-descriptions__title">Bodyweight Squat</h1>
+      <div className = "exercise-descriptions__card">
       <img
         className="exercise-descriptions__img--squat"
         src={squat}
@@ -27,6 +29,8 @@ export const ExerciseDescriptions = () => {
         <p className="exercise-descriptions__muscle-group exercise-descriptions__muscle-group--thighs">
           Legs - Thighs
         </p>
+      </div>
+      </div>
       </div>
 
       <Link to ="/camera" className = "exercise-descriptions__link exercise-descriptions__cam-link">
