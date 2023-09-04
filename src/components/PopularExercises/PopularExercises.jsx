@@ -79,7 +79,7 @@ export const PopularExercises = () => {
             </div>         
         </div>
         <Link to ="/" className = "popular-exercises__link">
-            ⬅️Back
+            Home
             </Link>
         
 
