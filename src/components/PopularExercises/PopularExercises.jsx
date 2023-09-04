@@ -1,7 +1,11 @@
 import './PopularExercises.scss';
+
+import { Link } from 'react-router-dom';
+
 import squat from '../../assets/images/squatleft.png'
 import highPlank from '../../assets/images/HighPlank.png'
 import forearmPlank from '../../assets/images/forearmPlank.png'
+import lateralRaise from '../../assets/images/lateralRaise.png'
 
 
 export const PopularExercises = () => {
@@ -33,6 +37,7 @@ export const PopularExercises = () => {
                 </p>
               </div>
             </div>
+
             <div className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Plank
@@ -56,6 +61,28 @@ export const PopularExercises = () => {
                 </p>
               </div>
             </div>
+
+            <div className = "popular-exercises__card">
+              <p className = "popular-exercises__card-text-title">
+                Lateral Raise
+              </p>
+              <img 
+                className = "popular-exercises__img--lateral-raise"
+                src = {lateralRaise}
+                alt = "Cartoon of man doing a lateral raise"
+              />
+              <div className = "popular-exercises__muscle-group-container">
+                <p className = "popular-exercises__muscle-group popular-exercises__muscle-group--shoulders">
+                    Shoulders
+                </p>
+              </div>
+            </div>
+
+            <Link to ="/" className = "popular-exercises__link">
+            ⬅️Back
+            </Link>
+
+            
 
 
 
