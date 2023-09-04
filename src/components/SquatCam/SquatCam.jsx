@@ -2,6 +2,7 @@ import "./SquatCam.scss";
 import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
+import { Link } from "react-router-dom";
 import { drawKeypoints, drawSkeleton } from "../../utilities/utilities";
 import { useRef, useState, useEffect } from "react";
 
@@ -195,8 +196,6 @@ export const SquatCam = () => {
         </div>
       </section>
 
-      {/* <h2>Dorsiflexion</h2>
-      <h2>{dorsiflexion}</h2> */}
       <div className="squat-cam__cam-canvas">
         <Webcam
           ref={webcamRef}
@@ -230,6 +229,9 @@ export const SquatCam = () => {
           }}
         />
       </div>
+      <Link to ="/exercises/squat" className = "squat-cam__link">
+            ⬅️Back
+            </Link>
     </div>
   );
 };
