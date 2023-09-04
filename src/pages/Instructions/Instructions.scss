@@ -23,9 +23,31 @@
     //     width: 15rem;
     // }
 
+    &__container {
+        @include tablet {
+            display: flex;
+            flex-direction: column;
+           }
+    }
+
     &__title {
         text-align: center;
+        // display: inline-block;
+        // position: relative;
+        // padding: 10px;
+        // background-color: #f9f9f9;
+        // border: 2px solid #ccc;
+        // border-radius: 8px;
+        // width: fit-content;
     }
+
+    &__card-container {
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
     &__card {
         width:250px;
         height:240px;
@@ -98,6 +120,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        // @include tablet {
+        //     flex-wrap: nowrap;
+        // }
     }
 
     &__link {
