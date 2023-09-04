@@ -79,6 +79,9 @@
         &--abs {
             background-color: pink;
         }
+        &--back {
+            background-color: orange;
+        }
         &--butt-hips {
             background-color: green;
         }
@@ -93,6 +96,18 @@
     &__img {
         &--squat {
             width: 6rem;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        &--forearm-plank {
+            width: 9rem;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        &--high-plank {
+            width: 11rem;
             display: block;
             margin-right: auto;
             margin-left: auto;
