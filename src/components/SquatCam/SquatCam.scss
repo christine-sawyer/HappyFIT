@@ -28,18 +28,22 @@
     &__feedback-header{
         font-size: 2rem;
         color: white;
+        margin: .25rem 0;
     }
     &__feedback--up {
         font-size: 2.25rem;
         color: red;
+        margin: 1rem 0;
     }
     &__feedback--safe {
         color: lightgreen;
         font-size: 2.25rem;
+        margin: 1rem 0;
     }
     &__feedback--down {
         color: yellow;
         font-size: 2.25rem;
+        margin: 1rem 0;
     }
    
 }

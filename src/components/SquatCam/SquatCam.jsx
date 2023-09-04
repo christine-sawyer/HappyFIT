@@ -81,12 +81,17 @@ export const SquatCam = () => {
        */
       /*
        * Knee flexion - Hip Height
-       * Proper form: angle from 90° to 100°
+       * Proper form: angle from 90° to 110°
        * >90° Bring your hips up
-       * <100° Lower your hips more
+       * <110° Lower your hips more
        */
+      if (
+        leftAnkle.score > 0.5 &&
+        leftKnee.score > 0.5 &&
+        leftHip.score > 0.5
+      ) {
 
-      const leftKneeFlexionValue =
+        const leftKneeFlexionValue =
         (Math.atan2(
           leftAnkle.position.y - leftKnee.position.y,
           leftAnkle.position.x - leftKnee.position.x
@@ -97,6 +102,7 @@ export const SquatCam = () => {
           )) *
         (180 / Math.PI);
       setLeftKneeFlexion(leftKneeFlexionValue);
+          }
 
       /*
        * Hip flexion - Torso Lean
@@ -104,6 +110,12 @@ export const SquatCam = () => {
        * >110° Bring your chest up
        * <130° Bring your chest down towards thighs
        */
+
+      if (
+        leftShoulder.score > 0.5 &&
+        leftKnee.score > 0.5 &&
+        leftHip.score > 0.5
+      ) {
 
       const leftHipFlexionValue =
         360 -
@@ -117,6 +129,7 @@ export const SquatCam = () => {
           )) *
           (180 / Math.PI);
       setLeftHipFlexion(leftHipFlexionValue);
+          }
 
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
@@ -137,7 +150,6 @@ export const SquatCam = () => {
 
   return (
     <div className="squat-cam">
-      {/* <h3>{armHeight.toFixed(1)}°</h3> */}
 
       <section className="squat-cam__feedback-container">
         <div className="squat-cam__feedback-card">
@@ -147,7 +159,7 @@ export const SquatCam = () => {
               <h2 className="squat-cam__feedback--up">Raise Hips Up</h2>
               {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
-          ) : leftKneeFlexion >= 90 && leftKneeFlexion <= 100 ? (
+          ) : leftKneeFlexion >= 90 && leftKneeFlexion <= 110 ? (
             <>
               <h2 className="squat-cam__feedback--safe">Great Form!</h2>
               {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
