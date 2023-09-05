@@ -210,7 +210,7 @@ export const PlankCam = () => {
           }}
         />
       </div>
-      <Link to ="/exercises/squat" className = "plank-cam__link">
+      <Link to ="/exercises" className = "plank-cam__link">
             ⬅️Back
             </Link>
     </div>
