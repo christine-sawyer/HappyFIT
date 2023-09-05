@@ -7,6 +7,13 @@
     color: teal;
     display: flex;
     flex-direction: column;
+
+    &__title {
+        font-size: 1.5rem;
+        @include tablet {
+            font-size: 2rem;
+        }
+    }
     &__card-container {
         @include tablet {
             display: flex;
@@ -30,6 +37,7 @@
         font-family: 'Permanent Marker', cursive;
         line-height:1.7em;
         font-size:19px;
+        text-decoration: none;
         // -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
         color:#130d6b;
 

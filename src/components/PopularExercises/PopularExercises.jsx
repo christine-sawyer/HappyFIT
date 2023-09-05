@@ -13,7 +13,7 @@ export const PopularExercises = () => {
       <section className = "popular-exercises">
         <h1 className = "popular-exercises__title">Popular Exercises</h1>
         <div className = "popular-exercises__card-container">
-            <Link to ="/exercises/squat">
+            <Link to ="/exercises/squat" style={{textDecoration: 'none'}}>
             <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Squat
@@ -40,7 +40,7 @@ export const PopularExercises = () => {
             </div>
             </Link> 
 
-            <Link to ="/exercises/plank">
+            <Link to ="/exercises/plank" style={{textDecoration: 'none'}}>
             <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Plank
@@ -66,7 +66,7 @@ export const PopularExercises = () => {
               </div>
             </Link>
 
-            <Link to ="/exercises/lateral-raise">
+            <Link to ="/exercises/lateral-raise" style={{textDecoration: 'none'}}>
             <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Lateral Raise
