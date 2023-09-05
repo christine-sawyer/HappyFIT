@@ -11,9 +11,10 @@
         @include tablet {
             display: flex;
             justify-content: space-around;
+            margin: 2rem;
         }
         @include desktop {
-            margin: 2rem;
+            margin: 3rem;
         }
     }
 
@@ -37,9 +38,13 @@
         text-align: center;
     }
 
-    &__link-content{
+    &__link-container{
         display: flex;
         flex-direction: column;
+        
+        @include tablet {
+            margin-right: 3rem;
+        }
     }
 
     &__link {
@@ -79,8 +84,6 @@
         }
         
       }
-
-    
 
     &__penguin {
         width: 10rem;

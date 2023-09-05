@@ -1,7 +1,7 @@
 import './HomePage.scss';
 
-import logo from "../../assets/logos/logo-no-background.png";
-import penguin from "../../assets/images/sample-penguin.jpg";
+import logo from "../../assets/logos/HappyFITLogo.png";
+import penguin from "../../assets/gifs/PenguinCurls.gif";
 import { Link } from "react-router-dom";
 
 export const HomePage = () => {
@@ -32,7 +32,7 @@ export const HomePage = () => {
 
         <img className = "homepage__penguin"
                   src = {penguin}
-                  alt = "HappyFIT penguin mascot"
+                  alt = "HappyFIT penguin mascot git doing curls"
               />
 
         
