@@ -52,10 +52,10 @@ export const Instructions = () => {
           </div>
         </div>
         <div className="instructions__links-container">
-          <Link to="/exercises/squat" className="instructions__link">
+          <Link to="/exercises" className="instructions__link">
             ⬅️Back
           </Link>
-          <Link to="/camera" className="instructions__link instructions__link--cam">
+          <Link to="/camera/squat" className="instructions__link instructions__link--cam">
           🎥 Go See Coach Cam! 🎥
           </Link>
         </div>
