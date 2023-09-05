@@ -3,6 +3,7 @@ import * as tf from "@tensorflow/tfjs";
 import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { Link } from "react-router-dom";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import { drawKeypoints, drawSkeleton } from "../../utilities/utilities";
 import { useRef, useState, useEffect } from "react";
 
@@ -91,19 +92,18 @@ export const SquatCam = () => {
         leftKnee.score > 0.5 &&
         leftHip.score > 0.5
       ) {
-
         const leftKneeFlexionValue =
-        (Math.atan2(
-          leftAnkle.position.y - leftKnee.position.y,
-          leftAnkle.position.x - leftKnee.position.x
-        ) -
-          Math.atan2(
-            leftHip.position.y - leftKnee.position.y,
-            leftHip.position.x - leftKnee.position.x
-          )) *
-        (180 / Math.PI);
-      setLeftKneeFlexion(leftKneeFlexionValue);
-          }
+          (Math.atan2(
+            leftAnkle.position.y - leftKnee.position.y,
+            leftAnkle.position.x - leftKnee.position.x
+          ) -
+            Math.atan2(
+              leftHip.position.y - leftKnee.position.y,
+              leftHip.position.x - leftKnee.position.x
+            )) *
+          (180 / Math.PI);
+        setLeftKneeFlexion(leftKneeFlexionValue);
+      }
 
       /*
        * Hip flexion - Torso Lean
@@ -117,20 +117,19 @@ export const SquatCam = () => {
         leftKnee.score > 0.5 &&
         leftHip.score > 0.5
       ) {
-
-      const leftHipFlexionValue =
-        360 -
-        (Math.atan2(
-          leftKnee.position.y - leftHip.position.y,
-          leftKnee.position.x - leftHip.position.x
-        ) -
-          Math.atan2(
-            leftShoulder.position.y - leftHip.position.y,
-            leftShoulder.position.x - leftHip.position.x
-          )) *
-          (180 / Math.PI);
-      setLeftHipFlexion(leftHipFlexionValue);
-          }
+        const leftHipFlexionValue =
+          360 -
+          (Math.atan2(
+            leftKnee.position.y - leftHip.position.y,
+            leftKnee.position.x - leftHip.position.x
+          ) -
+            Math.atan2(
+              leftShoulder.position.y - leftHip.position.y,
+              leftShoulder.position.x - leftHip.position.x
+            )) *
+            (180 / Math.PI);
+        setLeftHipFlexion(leftHipFlexionValue);
+      }
 
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
@@ -151,7 +150,6 @@ export const SquatCam = () => {
 
   return (
     <div className="squat-cam">
-
       <section className="squat-cam__feedback-container">
         <div className="squat-cam__feedback-card">
           <h3 className="squat-cam__feedback-header">Hip Height</h3>
@@ -229,9 +227,11 @@ export const SquatCam = () => {
           }}
         />
       </div>
-      <Link to ="/exercises/squat" className = "squat-cam__link">
-            ⬅️Back
-            </Link>
+      <Link to="/exercises" className="squat-cam__link">
+        {/* <AnchorLink href='#squat'> */}
+        ⬅️Back
+        {/* </AnchorLink> */}
+      </Link>
     </div>
   );
 };

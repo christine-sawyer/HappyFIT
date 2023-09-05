@@ -10,10 +10,10 @@ export const CameraPage = () => {
     <main className = "camera-page">
         {/* <h1>HappyFIT Cam</h1> */}
         <section className = "camera-page__squat-cam-container">
-            {/* <SquatCam /> */}
-            {/* <SquatCamSidebar /> */}
-            <PlankCam />
-            <PlankCamSidebar />
+            <SquatCam />
+            <SquatCamSidebar />
+            {/* <PlankCam />
+            <PlankCamSidebar /> */}
         </section>
         
     </main>

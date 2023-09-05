@@ -18,8 +18,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="instructions" element={<Instructions />} />
           <Route path="exercises" element={<Exercises />} />
-          <Route path="exercises/squat" element={<ExerciseDetails />} />
-          <Route path="camera" element={<CameraPage />} />
+          {/* <Route path="exercises/squat" element={<ExerciseDetails />} /> */}
+          <Route path="camera/squat" element={<CameraPage />} />
+          {/* <Route path="camera/plank" element={<CameraPagePlank />} /> */}
       </Routes>
     </BrowserRouter>
   )
