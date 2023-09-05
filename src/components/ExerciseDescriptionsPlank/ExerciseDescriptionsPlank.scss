@@ -167,7 +167,7 @@
     }
     &__plank-gif {
         
-        width: 15rem;
+        width: 60%;
         height: 100%;
         padding: 0;
         margin: 0;
@@ -176,7 +176,7 @@
         margin-left: auto;
 
             @include tablet {
-                width: 40rem;
+                width: 50%;
             }
     }
     &__steps-container {
