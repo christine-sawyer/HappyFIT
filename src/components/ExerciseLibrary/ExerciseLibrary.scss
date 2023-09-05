@@ -1,2 +1,25 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
 
 
+.exercise-library {
+    padding: 2rem;
+
+    @include desktop {
+        padding: 3rem;
+    }
+
+    &__title {
+        font-size: 2rem;
+
+        @include tablet {
+            font-size: 2.5rem;
+        }
+
+        @include desktop {
+            font-size: 3rem;
+        }
+    }
+}

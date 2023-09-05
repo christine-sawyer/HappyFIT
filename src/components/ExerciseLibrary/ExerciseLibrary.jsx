@@ -1,3 +1,5 @@
+import './ExerciseLibrary.scss';
+
 import { ExerciseLibraryCard } from "../ExerciseLibraryCard/ExerciseLibraryCard"
 import { PopularExercises } from "../PopularExercises/PopularExercises"
 
