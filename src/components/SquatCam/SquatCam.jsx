@@ -156,17 +156,17 @@ export const SquatCam = () => {
           {leftKneeFlexion < 90 ? (
             <>
               <h2 className="squat-cam__feedback--up">Raise Hips Up</h2>
-              {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+              {/* <h3 className="squat-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           ) : leftKneeFlexion >= 90 && leftKneeFlexion <= 110 ? (
             <>
               <h2 className="squat-cam__feedback--safe">Great Form!</h2>
-              {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+              {/* <h3 className="squat-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           ) : (
             <>
-              <h2 className="squat-cam__feedback--down">Lower Hips More</h2>
-              {/* <h3>{leftKneeFlexion.toFixed(1)}°</h3> */}
+              <h2 className="squat-cam__feedback--down">Lower Hips Down</h2>
+              {/* <h3 className="squat-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           )}
         </div>
@@ -186,7 +186,7 @@ export const SquatCam = () => {
           ) : (
             <>
               <h2 className="squat-cam__feedback--down">
-                Lower Chest To Thighs
+                Lower Chest Down
               </h2>
               {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
             </>
