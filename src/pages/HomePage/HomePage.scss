@@ -63,13 +63,24 @@
             font-size: 1.5rem;
             padding: 1.5rem 4rem;
         }
+        &:hover {
+            background-position: right center;
+            background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+            color: rgba(255,255,255,0.8);
+          }
+
+        &--coming-soon {
+            
+            &:hover {
+                background-image: url('../../assets/images/ComingSoon.png');
+                background-repeat: no-repeat;
+                background-size:25rem;
+                }
+        }
+        
       }
 
-    &__link:hover {
-        background-position: right center;
-        background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
-        color: rgba(255,255,255,0.8);
-      }
+    
 
     &__penguin {
         width: 10rem;

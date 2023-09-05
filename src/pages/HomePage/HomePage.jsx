@@ -16,12 +16,12 @@ export const HomePage = () => {
           {/* <h1 className = "homepage__title">Welcome to HappyFIT!</h1> */}
 
         <div className = "homepage__link-container">
-          <Link to ="/instructions" className = "homepage__link">
-              Instructions
-          </Link>
-
           <Link to ="/exercises" className = "homepage__link">
               Exercise Library
+          </Link>
+
+          <Link to ="/" className = "homepage__link homepage__link--coming-soon">
+              Challenge Mode
           </Link>
 
           <Link to ="/about" className = "homepage__link">
