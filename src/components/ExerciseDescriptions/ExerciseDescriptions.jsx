@@ -1,6 +1,7 @@
 import "./ExerciseDescriptions.scss";
 
 import { Link } from "react-router-dom";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import squat from "../../assets/images/squatleft.png";
 import squatGIF from "../../assets/gifs/squat.gif";
@@ -106,9 +107,11 @@ export const ExerciseDescriptions = () => {
             <Link to ="/" className = "exercise-descriptions__link">
             🏠Home
             </Link>
-            <Link to ="/exercises" className = "exercise-descriptions__link">
+            <AnchorLink href='#top' className = "exercise-descriptions__link" style={{textDecoration: 'none'}}>
+            {/* <Link to ="/exercises" className = "exercise-descriptions__link"> */}
                 Exercise Library🏋🏽‍♀️
-            </Link>
+            {/* </Link> */}
+            </AnchorLink>
           </div>
     </section>
   );

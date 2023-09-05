@@ -1,6 +1,7 @@
 import './PopularExercises.scss';
 
 import { Link } from 'react-router-dom';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 import squat from '../../assets/images/squatleft.png'
 import highPlank from '../../assets/images/HighPlank.png'
@@ -13,7 +14,8 @@ export const PopularExercises = () => {
       <section className = "popular-exercises">
         <h1 className = "popular-exercises__title">Popular Exercises</h1>
         <div className = "popular-exercises__card-container">
-            <Link to ="/exercises/squat" style={{textDecoration: 'none'}}>
+            {/* <Link to ="/exercises/squat" style={{textDecoration: 'none'}}> */}
+            <AnchorLink href='#squat' style={{textDecoration: 'none'}}>
             <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Squat
@@ -38,9 +40,11 @@ export const PopularExercises = () => {
                 </p>
               </div>
             </div>
-            </Link> 
+            </AnchorLink>
+            {/* </Link>  */}
 
-            <Link to ="/exercises/plank" style={{textDecoration: 'none'}}>
+            {/* <Link to ="/exercises/plank" style={{textDecoration: 'none'}}> */}
+            <AnchorLink href='#plank' style={{textDecoration: 'none'}}>
             <div  className = "popular-exercises__card">
               <p className = "popular-exercises__card-text-title">
                 Plank
@@ -64,7 +68,8 @@ export const PopularExercises = () => {
                 </p>
               </div>
               </div>
-            </Link>
+            {/* </Link> */}
+            </AnchorLink>
 
             <Link to ="/exercises/lateral-raise" style={{textDecoration: 'none'}}>
             <div  className = "popular-exercises__card">
