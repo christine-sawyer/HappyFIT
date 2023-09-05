@@ -33,10 +33,14 @@ export const ExerciseDescriptions = () => {
       </div>
       </div>
 
+    <div className = "exercise-descriptions__coach-cam-links">
       <Link to ="/camera" className = "exercise-descriptions__link exercise-descriptions__cam-link">
       🎥 Coach Cam 🎥
         </Link>
-
+        <Link to ="/instructions" className = "exercise-descriptions__link">
+          Instructions
+        </Link>
+        </div>
       <div className="exercise-descriptions__gif-n-text">
         <img
           className="exercise-descriptions__squat-gif"
