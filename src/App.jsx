@@ -7,6 +7,7 @@ import { Instructions } from "./pages/Instructions/Instructions";
 import { Exercises } from "./pages/Exercises/Exercises";
 import { ExerciseDetails } from "./pages/ExerciseDetails/ExerciseDetails";
 import { CameraPagePlank } from "./pages/CameraPagePlank/CameraPagePlank";
+import { About } from "./pages/About/About";
 
 // import { Header } from "./components/Header/Header";
 
@@ -22,6 +23,7 @@ function App() {
           {/* <Route path="exercises/squat" element={<ExerciseDetails />} /> */}
           <Route path="camera/squat" element={<CameraPage />} />
           <Route path="camera/plank" element={<CameraPagePlank />} />
+          <Route path="about" element={<About />} />
       </Routes>
     </BrowserRouter>
   )
