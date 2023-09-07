@@ -1,8 +1,8 @@
 import './ExerciseLibrary.scss';
 
 import { Link } from 'react-router-dom';
-import { ExerciseLibraryCard } from "../ExerciseLibraryCard/ExerciseLibraryCard"
-import { PopularExercises } from "../PopularExercises/PopularExercises"
+import { ExerciseLibraryCard } from "../ExerciseLibraryCard/ExerciseLibraryCard";
+import { PopularExercises } from "../PopularExercises/PopularExercises";
 
 import logo from "../../assets/logos/HappyFITLogo.png";
 import penguin from "../../assets/gifs/PenguinCurls.gif";

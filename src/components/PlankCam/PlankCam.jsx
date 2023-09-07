@@ -159,12 +159,12 @@ export const PlankCam = () => {
           {leftHipFlexion < 170 ? (
             <>
               <h2 className="plank-cam__feedback--up">Lower Hips Down</h2>
-              <h3 className="plank-cam__feedback-header">{leftHipFlexion.toFixed(1)}°</h3>
+              {/* <h3 className="plank-cam__feedback-header">{leftHipFlexion.toFixed(1)}°</h3> */}
             </>
           ) : leftHipFlexion >= 170 && leftHipFlexion <= 190 ? (
             <>
               <h2 className="plank-cam__feedback--safe">Fantastic Form!</h2>
-              <h3 className="plank-cam__feedback-header">{leftHipFlexion.toFixed(1)}°</h3>
+              {/* <h3 className="plank-cam__feedback-header">{leftHipFlexion.toFixed(1)}°</h3> */}
             </>
           ) : (
             <>

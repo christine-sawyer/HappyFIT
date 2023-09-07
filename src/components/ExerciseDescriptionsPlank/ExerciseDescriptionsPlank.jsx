@@ -65,7 +65,7 @@ export const ExerciseDescriptionsPlank = () => {
           </p>
           <p className="exercise-descriptions__step-number"> Step 2</p>
           <p className="exercise-descriptions__step-details">
-            Upward Phase. Slowly lift your entire torso off the floor or mat,
+            Upward Phase: Slowly lift your entire torso off the floor or mat,
             maintaining a stiff torso and legs. Avoid any arching (sagging) in
             your low back, hiking (upwards) in your hips or bending in the
             knees. Avoid shrugging your shoulder and keep your shoulders

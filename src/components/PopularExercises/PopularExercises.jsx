@@ -66,7 +66,7 @@ export const PopularExercises = () => {
           {/* </Link> */}
         </AnchorLink>
 
-        <Link to="/exercises/lateral-raise" style={{ textDecoration: "none" }}>
+        <Link to="/exercises" style={{ textDecoration: "none" }}>
           <div className="popular-exercises__card">
             <p className="popular-exercises__card-text-title">Lateral Raise</p>
             <img
