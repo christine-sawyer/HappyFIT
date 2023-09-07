@@ -1,3 +1,4 @@
+import { LatRaiseCam } from '../../components/LatRaiseCam/LatRaiseCam';
 import { PlankCam } from '../../components/PlankCam/PlankCam';
 import { PlankCamSidebar } from '../../components/PlankCamSidebar/PlankCamSidebar';
 import { SquatCam } from '../../components/SquatCam/SquatCam';
@@ -10,10 +11,12 @@ export const CameraPage = () => {
     <main className = "camera-page">
         {/* <h1>HappyFIT Cam</h1> */}
         <section className = "camera-page__squat-cam-container">
-            <SquatCam />
+        <LatRaiseCam />
+            {/* <SquatCam /> */}
             <SquatCamSidebar />
             {/* <PlankCam />
             <PlankCamSidebar /> */}
+            
         </section>
         
     </main>

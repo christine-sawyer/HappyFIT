@@ -11,12 +11,13 @@ export const LatRaiseCam = () => {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const [leftShoulderFlexion, setLeftShoulderFlexion] = useState(0);
-  const [trunkLean, setTrunkLean] = useState(0);
-  const [leftKneeFlexion, setLeftKneeFlexion] = useState(0);
-  const [leftHipFlexion, setLeftHipFlexion] = useState(0);
-  const [dorsiflexion, setDorsiflexion] = useState(0);
-  const [armHeight, setArmHeight] = useState(0);
+  const [rightArmAngle, setRightArmAngle] = useState(0);
+  const [leftArmAngle, setLeftArmAngle] = useState(0);
+//   const [trunkLean, setTrunkLean] = useState(0);
+//   const [leftKneeFlexion, setLeftKneeFlexion] = useState(0);
+//   const [leftHipFlexion, setLeftHipFlexion] = useState(0);
+//   const [dorsiflexion, setDorsiflexion] = useState(0);
+//   const [armHeight, setArmHeight] = useState(0);
 
   const runPosenet = async () => {
     // console.log("runPosenet")
@@ -79,56 +80,55 @@ export const LatRaiseCam = () => {
         leftShoulder.position.x - leftWrist.position.x;
 
       /*
-       * lat-raise - Left side toward camera
+       * Lat Raise
        */
       /*
-       * Knee flexion - Hip Height
-       * Proper form: angle from 90° to 110°
-       * >90° Bring your hips up
-       * <110° Lower your hips more
+       * Right Arm
+       * Proper form: angle from 80° to 100°
+       * >80° Bring your arm up
+       * <100° Lower your arm down
        */
       if (
-        leftAnkle.score > 0.5 &&
-        leftKnee.score > 0.5 &&
-        leftHip.score > 0.5
+        rightElbow.score > 0.5 &&
+        rightShoulder.score > 0.5 &&
+        rightHip.score > 0.5
       ) {
-        const leftKneeFlexionValue =
+        const rightArmAngleValue =
           (Math.atan2(
-            leftAnkle.position.y - leftKnee.position.y,
-            leftAnkle.position.x - leftKnee.position.x
+            rightElbow.position.y - rightShoulder.position.y,
+            rightElbow.position.x - rightShoulder.position.x
           ) -
             Math.atan2(
-              leftHip.position.y - leftKnee.position.y,
-              leftHip.position.x - leftKnee.position.x
+              rightHip.position.y - rightShoulder.position.y,
+              rightHip.position.x - rightShoulder.position.x
             )) *
           (180 / Math.PI);
-        setLeftKneeFlexion(leftKneeFlexionValue);
+        rightArmAngle(rightArmAngleValue);
       }
 
-      /*
-       * Hip flexion - Torso Lean
-       * Proper form: angle from 110° to 130°
-       * >110° Bring your chest up
-       * <130° Bring your chest down towards thighs
+           /*
+       * Left Arm
+       * Proper form: angle from 80° to 100°
+       * >80° Bring your arm up
+       * <100° Lower your arm down
        */
 
       if (
+        leftElbow.score > 0.5 &&
         leftShoulder.score > 0.5 &&
-        leftKnee.score > 0.5 &&
         leftHip.score > 0.5
       ) {
-        const leftHipFlexionValue =
-          360 -
+        const leftArmAngleValue =
           (Math.atan2(
-            leftKnee.position.y - leftHip.position.y,
-            leftKnee.position.x - leftHip.position.x
+            leftElbow.position.y - leftShoulder.position.y,
+            leftElbow.position.x - leftShoulder.position.x
           ) -
             Math.atan2(
-              leftShoulder.position.y - leftHip.position.y,
-              leftShoulder.position.x - leftHip.position.x
+                leftHip.position.y - leftShoulder.position.y,
+                leftHip.position.x - leftShoulder.position.x
             )) *
-            (180 / Math.PI);
-        setLeftHipFlexion(leftHipFlexionValue);
+          (180 / Math.PI);
+          leftArmAngle(leftArmAngleValue);
       }
 
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
@@ -152,43 +152,41 @@ export const LatRaiseCam = () => {
     <div className="lat-raise-cam">
       <section className="lat-raise-cam__feedback-container">
         <div className="lat-raise-cam__feedback-card">
-          <h3 className="lat-raise-cam__feedback-header">Hip Height</h3>
-          {leftKneeFlexion < 90 ? (
+          <h3 className="lat-raise-cam__feedback-header">Right Arm Height</h3>
+          {rightArmAngle < 80 ? (
             <>
-              <h2 className="lat-raise-cam__feedback--up">Raise Hips Up</h2>
+              <h2 className="lat-raise-cam__feedback--up">Raise Right Arm</h2>
               {/* <h3 className="lat-raise-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
-          ) : leftKneeFlexion >= 90 && leftKneeFlexion <= 110 ? (
+          ) : rightArmAngle >= 80 && rightArmAngle <= 110 ? (
             <>
               <h2 className="lat-raise-cam__feedback--safe">Great Form!</h2>
               {/* <h3 className="lat-raise-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           ) : (
             <>
-              <h2 className="lat-raise-cam__feedback--down">Lower Hips Down</h2>
+              <h2 className="lat-raise-cam__feedback--down">Lower Right Arm</h2>
               {/* <h3 className="lat-raise-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           )}
         </div>
 
         <div className="lat-raise-cam__feedback-card">
-          <h3 className="lat-raise-cam__feedback-header">Torso Lean</h3>
-          {leftHipFlexion < 110 ? (
+          <h3 className="lat-raise-cam__feedback-header">Left Arm Height</h3>
+          {leftArmAngle < 80 ? (
             <>
-              <h2 className="lat-raise-cam__feedback--up">Bring Chest Up</h2>
-              {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+              <h2 className="lat-raise-cam__feedback--up">Raise Left Arm</h2>
+              {/* <h3 className="lat-raise-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
-          ) : leftHipFlexion >= 110 && leftHipFlexion <= 130 ? (
+          ) : leftArmAngle >= 80 && leftArmAngle <= 110 ? (
             <>
               <h2 className="lat-raise-cam__feedback--safe">Fantastic Form!</h2>
-              {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+              {/* <h3 className="lat-raise-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           ) : (
             <>
-              <h2 className="lat-raise-cam__feedback--down">
-                Lower Chest Down
-              </h2>
-              {/* <h3>{leftHipFlexion.toFixed(1)}°</h3> */}
+              <h2 className="lat-raise-cam__feedback--down">Lower Left Arm</h2>
+              {/* <h3 className="lat-raise-cam__feedback-header">{leftKneeFlexion.toFixed(1)}°</h3> */}
             </>
           )}
         </div>
