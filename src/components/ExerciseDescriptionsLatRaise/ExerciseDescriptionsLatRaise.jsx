@@ -27,7 +27,7 @@ export const ExerciseDescriptionsLatRaise = () => {
 
       <div className="exercise-descriptions__coach-cam-links">
         <Link
-          to="/camera/plank"
+          to="/camera/lateral-raise"
           className="exercise-descriptions__link exercise-descriptions__cam-link"
         >
           🎥 Coach Cam 🎥

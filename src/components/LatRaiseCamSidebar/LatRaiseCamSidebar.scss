@@ -1,0 +1,45 @@
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+.plank-cam-sidebar {
+    margin: 0 0 0 2rem;
+    padding: 0 1rem 0 1rem;
+    background-image: url("../../assets/images/note-pad.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__title {
+        padding-top: 5rem;
+        font-family: $title-font;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    &__img-n-cues {
+        display: flex;
+    }
+    &__images {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__cue-title {
+        padding: 0 1rem 0 1rem;
+        font-size: 2rem;
+    }
+
+    &__cue {
+        font-family: $details-font;
+        font-size: 1.25rem;
+        padding: 0 1rem 0 1rem;
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-left: 1rem;
+        padding-bottom: 6rem;
+    }
+}
