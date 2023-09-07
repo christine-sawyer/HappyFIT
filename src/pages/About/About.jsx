@@ -10,9 +10,9 @@ export const About = () => {
   return (
     <section className="about">
       <div className="about__top-bar">
-        {/* <Link to ="/" className = "about__logo-link"> */}
+        <Link to ="/" className = "about__logo-link">
         <img className="about__logo" src={logo} alt="HappyFIT logo" />
-        {/* </Link> */}
+        </Link>
         <h1 className="about__title">About HappyFIT</h1>
         <img
           className="about__penguin"
