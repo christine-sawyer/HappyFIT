@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import logo from "../../assets/logos/HappyFITLogo.png";
 import penguin from "../../assets/gifs/PenguinCurls.gif";
-import lateralRaise from "../../assets/gifs/LateralRaise.gif";
 
 export const About = () => {
   return (
