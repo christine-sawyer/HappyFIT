@@ -104,12 +104,12 @@ export const ExerciseDescriptions = () => {
         </div>
       </div>
       <div className = "exercise-descriptions__links-container">
-            <Link to ="/" className = "exercise-descriptions__link">
+            {/* <Link to ="/" className = "exercise-descriptions__link">
             🏠Home
-            </Link>
+            </Link> */}
             <AnchorLink href='#top' className = "exercise-descriptions__link" style={{textDecoration: 'none'}}>
             {/* <Link to ="/exercises" className = "exercise-descriptions__link"> */}
-                Exercise Library🏋🏽‍♀️
+            🏋🏽‍♀️Exercise Library
             {/* </Link> */}
             </AnchorLink>
           </div>

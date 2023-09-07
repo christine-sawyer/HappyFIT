@@ -34,7 +34,7 @@ export const Instructions = () => {
         workouts! With Coach Cam, you have a real-time fitness companion right
         at your fingertips. Whether you're a fitness novice or a seasoned pro,
         Coach Cam is here to ensure you perform your best and reach your fitness
-        goals safely.         Let's get started!{" "}
+        goals safely. Let's get started!{" "}
       </p>
       <section className="instructions__container">
         <div className="instructions__card-container">
