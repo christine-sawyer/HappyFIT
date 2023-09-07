@@ -66,7 +66,7 @@ export const PopularExercises = () => {
           {/* </Link> */}
         </AnchorLink>
 
-        <Link to="/exercises" style={{ textDecoration: "none" }}>
+        <AnchorLink href="#lateral-raise" style={{ textDecoration: "none" }}>
           <div className="popular-exercises__card">
             <p className="popular-exercises__card-text-title">Lateral Raise</p>
             <img
@@ -80,7 +80,7 @@ export const PopularExercises = () => {
               </p>
             </div>
           </div>
-        </Link>
+        </AnchorLink>
       </div>
       {/* <Link to="/" className="popular-exercises__link">
         🏠Home

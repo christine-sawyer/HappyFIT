@@ -89,9 +89,9 @@ export const ExerciseDescriptionsPlank = () => {
         🏋🏽‍♀️Exercise Library
         {/* </Link> */}
         </AnchorLink>
-        <Link to="/" className="exercise-descriptions__link">
+        {/* <Link to="/" className="exercise-descriptions__link">
           Home🏠
-        </Link>
+        </Link> */}
         
       </div>
     </section>
