@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 
 import logo from "../../assets/logos/HappyFITLogo.png";
 import penguin from "../../assets/gifs/PenguinCurls.gif";
-import lateralRaise from "../../assets/gifs/LateralRaise.gif";
 
 export const About = () => {
   return (
     <section className="about">
       <div className="about__top-bar">
+        <Link to ="/" className = "about__logo-link">
         <img className="about__logo" src={logo} alt="HappyFIT logo" />
+        </Link>
         <h1 className="about__title">About HappyFIT</h1>
         <img
           className="about__penguin"

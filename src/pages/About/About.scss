@@ -21,10 +21,15 @@
         justify-content: space-around;
     }
     &__logo {
-        width: 15%;
+        width: 18rem;
+        margin:0;
+    }
+    &__logo-link {
+        width: auto;
+        margin: 0;
     }
     &__penguin {
-        width: 15%;
+        width: 20%;
     }
     &__title {
         text-align: center;

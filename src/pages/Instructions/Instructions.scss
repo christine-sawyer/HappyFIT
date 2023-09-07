@@ -7,7 +7,7 @@
 .instructions {
 
     @include desktop {
-        margin: 4rem 2rem;
+        margin: 2rem 2rem;
     }
 
     &__container {
@@ -19,6 +19,25 @@
 
     &__title {
         text-align: center;
+        @include desktop {
+            font-size: 3rem;
+        }
+    }
+    &__top-bar {
+        display: flex;
+        align-items:center;
+        justify-content: space-around;
+    }
+    &__logo {
+        width: 12rem;
+        margin:0;
+    }
+    &__logo-link {
+        width: auto;
+        margin: 0;
+    }
+    &__penguin {
+        width: 12%;
     }
 
     &__details {
@@ -27,9 +46,11 @@
         margin-left: auto;
         margin-right: auto;
         padding: 1rem 1.5rem;
+        
         @include tablet{
-        width: 80%;
-        margin-top: 2rem;
+            width: 80%;
+            margin-top: 0;
+            margin-bottom: 0;
         }
     }
 
@@ -39,7 +60,7 @@
             flex-wrap: wrap;
         }
         @include desktop {
-            margin:1.5rem 0 3rem 0;
+            margin:0;
         }
     }
 
@@ -131,7 +152,7 @@
         background-color: rgba(255,255,255,0.1);
         border: 1px solid rgba(255, 255, 0, 0.8);
         backdrop-filter: blur(0.5rem);
-        color:teal;
+        color: teal;
         font-size: 1rem;
         letter-spacing: 2px;
         cursor: pointer;
@@ -144,13 +165,14 @@
 
         &--cam {
             background-image: linear-gradient(to right, #8fd3f4 0%, #84fab0 51%, #8fd3f4 100%);
+            color:white;
         }
       }
 
     &__link:hover {
         background-position: right center;
         background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
-        color: rgba(255,255,255,0.8);
+        color: rgba(255,255,0,0.8);
       }
 
 }

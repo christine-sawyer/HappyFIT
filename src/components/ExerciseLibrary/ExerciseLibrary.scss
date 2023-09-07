@@ -10,6 +10,22 @@
     @include desktop {
         padding: 3rem;
     }
+    &__top-bar {
+        display: flex;
+        align-items:center;
+        justify-content: space-around;
+    }
+    &__logo {
+        width: 12rem;
+        margin:0;
+    }
+    &__logo-link {
+        width: auto;
+        margin: 0;
+    }
+    &__penguin {
+        width: 15%;
+    }
 
     &__title {
         font-size: 2rem;

@@ -2,6 +2,8 @@ import "./Instructions.scss";
 
 import { Link } from "react-router-dom";
 
+import logo from "../../assets/logos/HappyFITLogo.png";
+import penguin from "../../assets/gifs/PenguinCurls.gif";
 import cameraPopup from "../../assets/images/UseCameraPopup.jpg";
 import manOutOfFrame from "../../assets/images/ManNotInFrame.png";
 import squatInFrame from "../../assets/images/SquatInFrame.png";
@@ -9,13 +11,30 @@ import squatInFrame from "../../assets/images/SquatInFrame.png";
 export const Instructions = () => {
   return (
     <main className="instructions">
-      <h1 className="instructions__title">
-        How to train with HappyFIT Coach Cam?
-      </h1>
+      <div className="instructions__top-bar">
+        <Link to="/" className="instructions__logo-link">
+          <img
+            className="instructions__logo"
+            src={logo}
+            alt="HappyFIT logo"
+          />
+        </Link>
+        <h1 className="instructions__title">
+          How to train with HappyFIT Coach Cam?
+        </h1>{" "}
+        <img
+          className="instructions__penguin"
+          src={penguin}
+          alt="HappyFIT penguin mascot git doing curls"
+        />
+      </div>
+
       <p className="instructions__details">
         Welcome to Coach Cam, your personal virtual coach for perfecting your
         workouts! With Coach Cam, you have a real-time fitness companion right
-        at your fingertips. Whether you're a fitness novice or a seasoned pro, Coach Cam is here to ensure you perform your best and reach your fitness goals safely. Let's get started!{" "}
+        at your fingertips. Whether you're a fitness novice or a seasoned pro,
+        Coach Cam is here to ensure you perform your best and reach your fitness
+        goals safely. Let's get started!{" "}
       </p>
       <section className="instructions__container">
         <div className="instructions__card-container">
@@ -55,8 +74,11 @@ export const Instructions = () => {
           <Link to="/exercises" className="instructions__link">
             ⬅️Back
           </Link>
-          <Link to="/camera/squat" className="instructions__link instructions__link--cam">
-          🎥 Go See Coach Cam! 🎥
+          <Link
+            to="/camera/squat"
+            className="instructions__link instructions__link--cam"
+          >
+            🎥 Go See Coach Cam! 🎥
           </Link>
         </div>
       </section>
