@@ -82,9 +82,9 @@ export const PopularExercises = () => {
           </div>
         </Link>
       </div>
-      <Link to="/" className="popular-exercises__link">
+      {/* <Link to="/" className="popular-exercises__link">
         🏠Home
-      </Link>
+      </Link> */}
     </section>
   );
 };
