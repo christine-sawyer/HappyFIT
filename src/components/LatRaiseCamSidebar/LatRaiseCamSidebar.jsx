@@ -5,7 +5,7 @@ import latRaise from "../../assets/images/LateralRaise.png"
 export const LatRaiseCamSidebar = () => {
     return (
       <section className = "plank-cam-sidebar">
-        <h1 className = "plank-cam-sidebar__title">Lat Raise Top Hold</h1>
+        <h1 className = "plank-cam-sidebar__title">Lateral Raise Top Hold</h1>
 
         
         <div className = "plank-cam-sidebar__img-n-cues">
