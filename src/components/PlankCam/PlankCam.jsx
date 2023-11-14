@@ -46,7 +46,7 @@ export const PlankCam = () => {
 
       // Make Detections - pass video to posenet
       const pose = await net.estimateSinglePose(video);
-      // console.log(pose);
+      console.log(pose);
       // console.log(pose.keypoints[0].position); // x, y of nose
 
       // Name all keypoints
