@@ -42,7 +42,7 @@ export const ExerciseDescriptionsPlank = () => {
         >
           🎥 Coach Cam 🎥
         </Link>
-        <Link to="/instructions" className="exercise-descriptions__link">
+        <Link to="/instructions/plank" className="exercise-descriptions__link">
           Instructions
         </Link>
       </div>

@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="instructions" element={<Instructions />} />
+          <Route path="instructions/:exercise" element={<Instructions />} />
           <Route path="exercises" element={<Exercises />} />
           {/* <Route path="exercises/squat" element={<ExerciseDetails />} /> */}
           <Route path="camera/squat" element={<CameraPage />} />

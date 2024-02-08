@@ -32,7 +32,7 @@ export const ExerciseDescriptionsLatRaise = () => {
         >
           🎥 Coach Cam 🎥
         </Link>
-        <Link to="/instructions" className="exercise-descriptions__link">
+        <Link to="/instructions/lateral-raise" className="exercise-descriptions__link">
           Instructions
         </Link>
       </div>

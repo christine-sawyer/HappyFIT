@@ -38,7 +38,7 @@ export const ExerciseDescriptions = () => {
       <Link to ="/camera/squat" className = "exercise-descriptions__link exercise-descriptions__cam-link">
       🎥 Coach Cam 🎥
         </Link>
-        <Link to ="/instructions" className = "exercise-descriptions__link">
+        <Link to ="/instructions/squat" className = "exercise-descriptions__link">
           Instructions
         </Link>
         </div>
