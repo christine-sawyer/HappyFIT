@@ -2,6 +2,8 @@ import "./Instructions.scss";
 
 import { Link } from "react-router-dom";
 
+import { useState, useEffect } from 'react';
+
 import logo from "../../assets/logos/HappyFITLogo.png";
 import penguin from "../../assets/gifs/PenguinCurls.gif";
 import cameraPopup from "../../assets/images/UseCameraPopup.jpg";
@@ -9,6 +11,8 @@ import manOutOfFrame from "../../assets/images/ManNotInFrame.png";
 import squatInFrame from "../../assets/images/SquatInFrame.png";
 
 export const Instructions = () => {
+  // const {exercise} = useParams();
+
   return (
     <main className="instructions">
       <div className="instructions__top-bar">
