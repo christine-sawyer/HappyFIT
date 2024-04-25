@@ -1,7 +1,7 @@
 import "./Instructions.scss";
 
 import { Link } from "react-router-dom";
-
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import logo from "../../assets/logos/HappyFITLogo.png";
@@ -11,7 +11,8 @@ import manOutOfFrame from "../../assets/images/ManNotInFrame.png";
 import squatInFrame from "../../assets/images/SquatInFrame.png";
 
 export const Instructions = () => {
-  // const {exercise} = useParams();
+  const {exercise} = useParams();
+  console.log(exercise);
 
   return (
     <main className="instructions">
