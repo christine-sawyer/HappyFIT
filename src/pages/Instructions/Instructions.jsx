@@ -2,7 +2,6 @@ import "./Instructions.scss";
 
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 
 import logo from "../../assets/logos/HappyFITLogo.png";
 import penguin from "../../assets/gifs/PenguinCurls.gif";
@@ -12,7 +11,6 @@ import squatInFrame from "../../assets/images/SquatInFrame.png";
 
 export const Instructions = () => {
   const {exercise} = useParams();
-  console.log(exercise);
 
   return (
     <main className="instructions">
@@ -80,7 +78,7 @@ export const Instructions = () => {
             ⬅️Back
           </Link>
           <Link
-            to="/camera/squat"
+            to={`/camera/${exercise}`}
             className="instructions__link instructions__link--cam"
           >
             🎥 Go See Coach Cam! 🎥
