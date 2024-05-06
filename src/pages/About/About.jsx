@@ -95,6 +95,32 @@ export const About = () => {
           well-being with HappyFIT. Together, we can create a happier, healthier
           world, one step at a time.
         </p>
+        <p className="about__header--small">Attrubutions</p>
+        <p className="about__text--small">
+          Arctic Background Vectors by Vecteezy: 
+          https://www.vecteezy.com/free-vector/arctic-background
+        </p>
+        <p className="about__text--small">
+          Exercise descriptions from ACE: 
+          https://www.acefitness.org/resources/everyone/exercise-library/
+        </p>
+        <p className="about__text--small">
+          Logo created with: www.logo.com
+        </p>
+        <p className="about__text--small">
+          Penguin gif used: www.pudgypenguins.com
+        </p>
+        <p className="about__text--small">
+          Lateral Raises gif used:
+        </p>
+        <p className="about__text--small">
+          Plank gif used: 
+          https://program.rapidloss.com.au/plank-to-high-plank/female-plank-to-high-plank/
+        </p>
+        <p className="about__text--small">
+          Squat gif used: 
+          https://trainerpl.us/exercise-of-the-month/squats
+        </p>
       </div>
 
       <Link to="/" className="about__link">
