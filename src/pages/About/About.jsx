@@ -98,28 +98,42 @@ export const About = () => {
         <p className="about__header--small">Attrubutions</p>
         <p className="about__text--small">
           Arctic Background Vectors by Vecteezy: 
-          https://www.vecteezy.com/free-vector/arctic-background
+          <a href = "https://www.vecteezy.com/free-vector/arctic-background">
+            www.vecteezy.com/free-vector/arctic-background
+          </a>
         </p>
         <p className="about__text--small">
           Exercise descriptions from ACE: 
-          https://www.acefitness.org/resources/everyone/exercise-library/
+          <a href = "https://www.acefitness.org/resources/everyone/exercise-library/">
+            www.acefitness.org/resources/everyone/exercise-library
+          </a>
         </p>
         <p className="about__text--small">
-          Logo created with: www.logo.com
+          Logo created with: 
+          <a href="www.logo.com">
+            www.logo.com
+          </a>
         </p>
         <p className="about__text--small">
-          Penguin gif used: www.pudgypenguins.com
+          Penguin gif used: 
+          <a href = "www.pudgypenguins.com">
+            www.pudgypenguins.com
+          </a>
         </p>
         <p className="about__text--small">
-          Lateral Raises gif used:
+          <a href = "https://gymguider.com/mastering-dumbbell-standing-dumbbell-lateral-raise-guide-form-flaws-set-up-execution/">
+            Lateral Raises gif used
+          </a>
         </p>
         <p className="about__text--small">
-          Plank gif used: 
-          https://program.rapidloss.com.au/plank-to-high-plank/female-plank-to-high-plank/
+          <a href = "https://program.rapidloss.com.au/plank-to-high-plank/female-plank-to-high-plank/"> 
+           Plank gif used
+          </a>
         </p>
         <p className="about__text--small">
-          Squat gif used: 
-          https://trainerpl.us/exercise-of-the-month/squats
+          <a href = "https://trainerpl.us/exercise-of-the-month/squats">
+            Squat gif used
+          </a> 
         </p>
       </div>
 
