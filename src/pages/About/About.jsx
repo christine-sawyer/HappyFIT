@@ -98,40 +98,40 @@ export const About = () => {
         <p className="about__header--small">Attrubutions</p>
         <p className="about__text--small">
           Arctic Background Vectors by Vecteezy: 
-          <a href = "https://www.vecteezy.com/free-vector/arctic-background">
+          <a href = "https://www.vecteezy.com/free-vector/arctic-background" target="_blank" rel="noopener noreferrer">
             www.vecteezy.com/free-vector/arctic-background
           </a>
         </p>
         <p className="about__text--small">
           Exercise descriptions from ACE: 
-          <a href = "https://www.acefitness.org/resources/everyone/exercise-library/">
+          <a href = "https://www.acefitness.org/resources/everyone/exercise-library/" target="_blank" rel="noopener noreferrer">
             www.acefitness.org/resources/everyone/exercise-library
           </a>
         </p>
         <p className="about__text--small">
           Logo created with: 
-          <a href="www.logo.com">
+          <a href="www.logo.com" target="_blank" rel="noopener noreferrer">
             www.logo.com
           </a>
         </p>
         <p className="about__text--small">
           Penguin gif used: 
-          <a href = "www.pudgypenguins.com">
+          <a href = "www.pudgypenguins.com" target="_blank" rel="noopener noreferrer">
             www.pudgypenguins.com
           </a>
         </p>
         <p className="about__text--small">
-          <a href = "https://gymguider.com/mastering-dumbbell-standing-dumbbell-lateral-raise-guide-form-flaws-set-up-execution/">
+          <a href = "https://gymguider.com/mastering-dumbbell-standing-dumbbell-lateral-raise-guide-form-flaws-set-up-execution/" target="_blank" rel="noopener noreferrer">
             Lateral Raises gif used
           </a>
         </p>
         <p className="about__text--small">
-          <a href = "https://program.rapidloss.com.au/plank-to-high-plank/female-plank-to-high-plank/"> 
+          <a href = "https://program.rapidloss.com.au/plank-to-high-plank/female-plank-to-high-plank/" target="_blank" rel="noopener noreferrer"> 
            Plank gif used
           </a>
         </p>
         <p className="about__text--small">
-          <a href = "https://trainerpl.us/exercise-of-the-month/squats">
+          <a href = "https://trainerpl.us/exercise-of-the-month/squats" target="_blank" rel="noopener noreferrer">
             Squat gif used
           </a> 
         </p>
